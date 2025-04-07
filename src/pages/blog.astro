@@ -1,0 +1,18 @@
+---
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Aktualności";
+---
+
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="container">
+    <h1>{pageTitle}</h1>
+    <p>Aktualności</p>
+    <ul>
+      <li><a href="/posts/post-1/">Aktualność 1</a></li>
+      <li><a href="/posts/post-2/">Aktualność 2</a></li>
+    </ul>
+  </div>
+</BaseLayout>

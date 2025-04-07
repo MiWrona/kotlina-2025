@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Product";
+
+const skillColor = "navy";
+---
+
+
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="container">
+    <h1>{pageTitle}</h1>
+    div class="container">
+    <h1>Miłosz W. – Człowiek Akcji</h1>
+    <p>
+      Miłosz W. pochodzi z <strong>Bielska-Białej</strong> – miasta o sportowej duszy,
+      gdzie kolarstwo i narciarstwo są niemal codziennością. Jest absolwentem <strong
+        >Uniwersytetu Śląskiego</strong
+      >, łączy pasję do <strong>marketingu</strong> i <strong
+        >programowania</strong
+      > z aktywnym trybem życia.
+    </p>
+
+    <h2>O mnie</h2>
+    <ul>
+      <li>📍 Pochodzenie: Bielsko-Biała</li>
+      <li>🎓 Absolwent Uniwersytetu Śląskiego</li>
+      <li>💼 Event manager, Marketingowiec i programista</li>
+      <li>🚴‍♂️ Fanatyk sportów</li>
+      <li>📅 Organizator wyjazdów</li>
+      <li>🎭 Człowiek orkiestra</li>
+    </ul>
+
+    <h2>Kontakt</h2>
+    <p>Masz pytania? Skontaktuj się!</p>
+    <button onclick="alert('In progress!')">Wyślij wiadomość</button>
+  </div>
+  </div>
+</BaseLayout>
