@@ -7,10 +7,8 @@ author: "Wrona"
 image:
   url: "https://docs.astro.build/assets/rose.webp"
   alt: "Coig"
-tags: ["rowery", "podróże", "przygoda", "wyprawa"]
+tags: ["it", "cybersecurity", "rpa", "jst"]
 ---
-
-
 
 Ruszamy na kolejną epicką wyprawę rowerową! Przygotowania idą pełną parą – smarujemy łańcuchy, sprawdzamy hamulce i kompletujemy ekwipunek. Rok temu przejechanie szlaku Alpe-Adria było niesamowitym doświadczeniem, a w tym roku szykujemy się na równie epicką wyprawę. Tym razem kierunek: **Rumunia**!
 

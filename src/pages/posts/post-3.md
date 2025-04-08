@@ -4,7 +4,7 @@ title: "Niezbędne wyposażenie na wyprawę bikepackingową"
 pubDate: 2025-01-29
 description: "Co spakować na wyprawę bikepackingową? Lista niezbędnego sprzętu."
 author: "Wrona"
-tags: ["bikepacking", "rowery", "podróże", "sprzęt"]
+tags: ["it", "data", "data center", "coig"]
 ---
 
 Bikepacking to idealne połączenie jazdy na rowerze i minimalistycznego podróżowania. Aby wyprawa była komfortowa i bezpieczna, warto dobrze przemyśleć ekwipunek. Oto lista niezbędnych rzeczy, które warto zabrać!

@@ -4,9 +4,8 @@ title: "Rowerowa Wyprawa po Siedmiogrodzie"
 pubDate: 2025-01-29
 description: "Odkrywamy najciekawsze atrakcje na trasie rowerowej przez Siedmiogród."
 author: "Wrona"
-tags: ["rowery", "podróże", "Rumunia", "Siedmiogród", "wampiry", "zamki"]
+tags: ["cybersecurity", "ai", "coig"]
 ---
-
 
 Rumunia to nie tylko kraj legend o Drakuli, ale również niezwykle malownicze tereny idealne na rowerową wyprawę. Oto atrakcje na trasie prowadzącej przez fascynujące zakątki Siedmiogrodu!
 
