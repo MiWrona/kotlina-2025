@@ -1,13 +1,9 @@
-
-
 ---
-
 
 ---
 
 <style>
-  .counter-wrapper 
-  {
+  .counter-wrapper {
     margin: 0 auto;
     background: rgba(27, 25, 25, 0.644);
     color: white;
@@ -15,39 +11,37 @@
     max-width: 750px;
     padding: 50px;
     font-weight: bold;
-    
+    z-index: 15;
+    position: relative;
   }
 </style>
 <div>
-
-  
-<div class="counter-wrapper">
+  <div class="counter-wrapper">
     <div id="countdown">Ładowanie...</div>
   </div>
-
 </div>
 <script>
   const countdown = document.getElementById("countdown");
-const targetDate = new Date("2025-06-08T07:00:00Z");
+  const targetDate = new Date("2025-06-08T07:00:00Z");
 
-function updateCountdown() {
-  const now = new Date();
-  const diff = targetDate - now;
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
 
-  if (diff <= 0) {
-    countdown.innerHTML = "Czas minął!";
-    countdown.style.color = "#6b0000";
-    return;
+    if (diff <= 0) {
+      countdown.innerHTML = "Czas minął!";
+      countdown.style.color = "#6b0000";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
   }
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-
-  countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
- </script>
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>

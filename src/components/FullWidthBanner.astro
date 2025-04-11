@@ -1,0 +1,107 @@
+---
+const {
+  headline,
+  description,
+  descriptionSecond,
+  incline,
+  url,
+  backgroundImageWebp,
+  backgroundImageJpeg,
+  height = "400px",
+  id,
+} = Astro.props;
+---
+
+<style>
+  .banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+
+  .banner picture,
+  .banner picture img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    display: block;
+  }
+
+  .banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  .banner-content {
+    position: relative;
+    z-index: 2;
+    padding: 1rem;
+    max-width: 800px;
+  }
+
+  .banner-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .banner-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .banner-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .banner-link:hover {
+    background: #f0f0f0;
+  }
+
+  @media (max-width: 768px) {
+    .banner-content h1 {
+      font-size: 1.8rem;
+    }
+
+    .banner-content p {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<div class="banner" style={`height: ${height};`} id={id}>
+  <picture>
+    <source srcset={backgroundImageWebp} type="image/webp" />
+    <img src={backgroundImageJpeg} alt="Tło banera" loading="lazy" />
+  </picture>
+
+  <div class="banner-content">
+    <h1>{headline}</h1>
+    <p>{description}</p>
+    <slot name="details" />
+    {
+      incline && url && (
+        <a class="banner-link" href={url}>
+          {incline}
+        </a>
+      )
+    }
+  </div>
+</div>

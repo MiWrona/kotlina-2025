@@ -1,0 +1,60 @@
+---
+const { distance, up, time } = Astro.props;
+---
+
+<style>
+  .road-details {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .detail-icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+  }
+</style>
+
+<div class="road-details">
+  {
+    distance && (
+      <div class="detail-item">
+        <img src="/icons/distance.svg" alt="Dystans" class="detail-icon" />
+        {distance}
+      </div>
+    )
+  }
+  {
+    up && (
+      <div class="detail-item">
+        <img
+          src="/icons/elevation.svg"
+          alt="Przewyższenia"
+          class="detail-icon"
+        />
+        {up}
+      </div>
+    )
+  }
+  {
+    time && (
+      <div class="detail-item">
+        <img src="/icons/time.svg" alt="Czas" class="detail-icon" />
+        {time}
+      </div>
+    )
+  }
+</div>

@@ -1,7 +1,11 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Greeting from '../components/Greeting';
-import Counter from '../components/Counter.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Greeting from "../components/Greeting";
+import Counter from "../components/Counter.astro";
+import FullWidthBanner from "../components/FullWidthBanner.astro";
+import AlpeOne from "../assets/img/alpe.jpeg";
+import RoadDetails from "../components/RoadDetails.astro";
+import GlitchImageBanner from "../components/GlitchImageBanner.astro";
 
 const pageTitle = "Coig - product website boilerplate";
 ---
@@ -13,79 +17,157 @@ const pageTitle = "Coig - product website boilerplate";
   }
   .hero-wrapper {
     position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background-color: black;
-   
-}
-
-.hero-wrapper::before,
-.hero-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url('../assets/img/alpe-nicht.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  mix-blend-mode: screen;
-  animation: fractalGlitch 5s infinite ease-in-out alternate;
-}
-
-.hero-wrapper::before {
-  filter: contrast(2) hue-rotate(0deg);
-  animation-delay: 0s;
-  z-index: 1;
-}
-
-.hero-wrapper::after {
-  filter: contrast(2) hue-rotate(180deg);
-  animation-delay: 1s;
-  z-index: 2;
-}
-
-@keyframes fractalGlitch {
-  0% {
-    transform: scale(1) skew(0deg, 0deg) translate(0, 0);
-    filter: hue-rotate(0deg) blur(0px);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
   }
-  25% {
-    transform: scale(1.03) skew(1deg, -1deg) translate(-2px, 1px);
-    filter: hue-rotate(90deg) blur(1px);
-  }
-  50% {
-    transform: scale(0.98) skew(-2deg, 2deg) translate(3px, -2px);
-    filter: hue-rotate(180deg) blur(1.5px);
-  }
-  75% {
-    transform: scale(1.02) skew(1deg, 1deg) translate(-1px, -3px);
-    filter: hue-rotate(270deg) blur(1px);
-  }
-  100% {
-    transform: scale(1) skew(0deg, 0deg) translate(0, 0);
-    filter: hue-rotate(360deg) blur(0px);
-  }
-}
 
-@keyframes distortionSkew {
-  0% { transform: skew(0deg, 0deg); filter: blur(10px); }
-  100% { transform: skew(1deg, -2deg); filter: blur(1px); }
-}
+  .hero-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../assets/img/alpe-nicht.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(1) sepia(0.5) brightness(0.8);
+    animation: zoomPan 20s infinite alternate ease-in-out;
+    z-index: 0;
+  }
+
+  .hero-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  @keyframes zoomPan {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    25% {
+      transform: scale(1.05) translate(1%, -1%);
+    }
+    50% {
+      transform: scale(1.1) translate(-1%, 1%);
+    }
+    75% {
+      transform: scale(1.05) translate(0.5%, -0.5%);
+    }
+    100% {
+      transform: scale(1) translate(0, 0);
+    }
+  }
+
+  @keyframes distortionSkew {
+    0% {
+      transform: skew(0deg, 0deg);
+      filter: blur(10px);
+    }
+    100% {
+      transform: skew(1deg, -2deg);
+      filter: blur(1px);
+    }
+  }
 </style>
 
-
-
-<BaseLayout >
- 
-    <div class="hero-wrapper">
-
-    
+<BaseLayout>
+  <div class="hero-wrapper">
     <div class="centered-counter">
       <Counter />
     </div>
-
   </div>
 
-  
+  <FullWidthBanner
+    id="day1"
+    headline="Day 1"
+    description={`Kato-Ostrava`}
+    incline="Zobacz więcej"
+    url="/day-1/"
+    backgroundImageWebp="/img/ema.webp"
+    backgroundImageJpeg="/img/ema.jpg"
+  >
+    <RoadDetails slot="details" distance="124 km" up="716 m" time="6h 18min" />
+  </FullWidthBanner>
+
+  <FullWidthBanner
+    id="day2"
+    headline="Day 2"
+    description={`Ostrava-Zlate Hory`}
+    incline="Zobacz więcej"
+    url="/day-2/"
+    backgroundImageWebp="/img/kopa.webp"
+    backgroundImageJpeg="/img/kopa.jpg"
+  >
+    <RoadDetails slot="details" distance="115 km" up="894 m" time="5h 11min" />
+  </FullWidthBanner>
+  <GlitchImageBanner
+    webpSrc="/img/alpe-team.jpeg"
+    jpgSrc="/img/alpe-team.jpeg"
+    alt="Drużyna Alpe"
+    id="alpe-glitch"
+    height="550px"
+  />
+  <FullWidthBanner
+    id="day3"
+    headline="Day 3"
+    description={`Zlate Hory-Międzylesie`}
+    incline="Zobacz więcej"
+    url="/day-1/"
+    backgroundImageWebp="/img/day3.webp"
+    backgroundImageJpeg="/img/day3.jpg"
+  >
+    <RoadDetails slot="details" distance="81 km" up="1093 m" time="4h 54min" />
+  </FullWidthBanner>
+
+  <FullWidthBanner
+    id="day4"
+    headline="Day 4"
+    description={`Kato-Ostrawa`}
+    incline="Zobacz więcej"
+    url="/day-1/"
+    backgroundImageWebp="/img/ema.webp"
+    backgroundImageJpeg="/img/ema.jpg"
+  >
+    <RoadDetails slot="details" distance="25 km" up="+320 m" time="1h 45min" />
+  </FullWidthBanner>
+
+  <FullWidthBanner
+    id="day5"
+    headline="Day 5"
+    description={`Kato-Ostrawa`}
+    incline="Zobacz więcej"
+    url="/day-1/"
+    backgroundImageWebp="/img/ema.webp"
+    backgroundImageJpeg="/img/ema.jpg"
+  >
+    <RoadDetails slot="details" distance="25 km" up="+320 m" time="1h 45min" />
+  </FullWidthBanner>
+
+  <FullWidthBanner
+    id="day6"
+    headline="Day 6"
+    description={`Kato-Ostrawa`}
+    incline="Zobacz więcej"
+    url="/day-1/"
+    backgroundImageWebp="/img/day3.webp"
+    backgroundImageJpeg="/img/day3.jpg"
+  >
+    <RoadDetails slot="details" distance="25 km" up="+320 m" time="1h 45min" />
+  </FullWidthBanner>
+
+  <FullWidthBanner
+    id="day7"
+    headline="Day 7"
+    description={`Kato-Ostrawa`}
+    incline="Zobacz więcej"
+    url="/day-1/"
+    backgroundImageWebp="/img/ema.webp"
+    backgroundImageJpeg="/img/ema.jpg"
+  >
+    <RoadDetails slot="details" distance="25 km" up="+320 m" time="1h 45min" />
+  </FullWidthBanner>
 </BaseLayout>
