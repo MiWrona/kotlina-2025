@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Greeting from '../components/Greeting';
 
 const pageTitle = "Coig - product website boilerplate";
 ---
 <BaseLayout pageTitle={pageTitle}>
+  <Greeting client:load messages={["Elo", "Siemanko", "Hej", "Hello there", "Dzień dobry"]} />
   <h2>My awesome blog subtitle</h2>
 </BaseLayout>
