@@ -1,10 +1,91 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Greeting from '../components/Greeting';
+import Counter from '../components/Counter.astro';
 
 const pageTitle = "Coig - product website boilerplate";
 ---
-<BaseLayout pageTitle={pageTitle}>
-  <Greeting client:load messages={["Elo", "Siemanko", "Hej", "Hello there", "Dzień dobry"]} />
-  <h2>My awesome blog subtitle</h2>
+
+<style>
+  .centered-counter {
+    text-align: center;
+    margin-top: 250px;
+  }
+  .hero-wrapper {
+    position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: black;
+   
+}
+
+.hero-wrapper::before,
+.hero-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/img/alpe-nicht.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+  animation: fractalGlitch 5s infinite ease-in-out alternate;
+}
+
+.hero-wrapper::before {
+  filter: contrast(2) hue-rotate(0deg);
+  animation-delay: 0s;
+  z-index: 1;
+}
+
+.hero-wrapper::after {
+  filter: contrast(2) hue-rotate(180deg);
+  animation-delay: 1s;
+  z-index: 2;
+}
+
+@keyframes fractalGlitch {
+  0% {
+    transform: scale(1) skew(0deg, 0deg) translate(0, 0);
+    filter: hue-rotate(0deg) blur(0px);
+  }
+  25% {
+    transform: scale(1.03) skew(1deg, -1deg) translate(-2px, 1px);
+    filter: hue-rotate(90deg) blur(1px);
+  }
+  50% {
+    transform: scale(0.98) skew(-2deg, 2deg) translate(3px, -2px);
+    filter: hue-rotate(180deg) blur(1.5px);
+  }
+  75% {
+    transform: scale(1.02) skew(1deg, 1deg) translate(-1px, -3px);
+    filter: hue-rotate(270deg) blur(1px);
+  }
+  100% {
+    transform: scale(1) skew(0deg, 0deg) translate(0, 0);
+    filter: hue-rotate(360deg) blur(0px);
+  }
+}
+
+@keyframes distortionSkew {
+  0% { transform: skew(0deg, 0deg); filter: blur(10px); }
+  100% { transform: skew(1deg, -2deg); filter: blur(1px); }
+}
+</style>
+
+
+
+<BaseLayout >
+ 
+    <div class="hero-wrapper">
+
+    
+    <div class="centered-counter">
+      <Counter />
+    </div>
+
+  </div>
+
+  
 </BaseLayout>
