@@ -4,22 +4,45 @@
 
 <style>
   .counter-wrapper {
+    position: relative;
     margin: 0 auto;
     background: rgba(27, 25, 25, 0.644);
     color: white;
-    font-size: 70px;
+    font-size: clamp(1rem, 4vw, 2.5rem);
     max-width: 750px;
     padding: 50px;
     font-weight: bold;
     z-index: 15;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .gif-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 220px;
+    height: 220px;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0.3;
+    filter: grayscale(100%) brightness(1.2) contrast(1.2);
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  #countdown {
     position: relative;
+    z-index: 1;
+    line-height: 1.2;
   }
 </style>
-<div>
-  <div class="counter-wrapper">
-    <div id="countdown">Ładowanie...</div>
-  </div>
+
+<div class="counter-wrapper">
+  <img class="gif-background" src="/img/crank-bielas.gif" alt="Korba w tle" />
+  <div id="countdown">Ładowanie...</div>
 </div>
+
 <script>
   const countdown = document.getElementById("countdown");
   const targetDate = new Date("2025-06-08T07:00:00Z");

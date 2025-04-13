@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Greeting from "../components/Greeting";
+import Toggle from "../components/Toggle.astro";
 import Counter from "../components/Counter.astro";
 import FullWidthBanner from "../components/FullWidthBanner.astro";
 import AlpeOne from "../assets/img/alpe.jpeg";
@@ -12,8 +12,12 @@ const pageTitle = "Coig - product website boilerplate";
 
 <style>
   .centered-counter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* nad tłem i overlayem */
     text-align: center;
-    margin-top: 250px;
   }
   .hero-wrapper {
     position: relative;
@@ -78,6 +82,13 @@ const pageTitle = "Coig - product website boilerplate";
   <div class="hero-wrapper">
     <div class="centered-counter">
       <Counter />
+      <Toggle
+        id="szczegoly-etapu"
+        buttonLabel="O co chodzi?"
+        buttonLabelAlt="ok"
+      >
+        <p>O jazdę na rowerze</p>
+      </Toggle>
     </div>
   </div>
 
@@ -105,7 +116,7 @@ const pageTitle = "Coig - product website boilerplate";
 
   <FullWidthBanner
     id="day2"
-    headline="Day 2"
+    headline="Etap 2"
     description={`Ostrava - Zlate Hory`}
     incline="Zobacz więcej"
     descriptionSecond={`🚩
@@ -129,7 +140,7 @@ const pageTitle = "Coig - product website boilerplate";
   />
   <FullWidthBanner
     id="day3"
-    headline="Day 3"
+    headline="Etap 3"
     description={`Zlate Hory - Międzylesie`}
     incline="Zobacz więcej"
     descriptionSecond={`🚩
@@ -140,15 +151,15 @@ const pageTitle = "Coig - product website boilerplate";
        Po drodze spotkasz ruiny fortyfikacji, leśne ścieżki i ciszę, która brzmi jak muzyka.
       `}
     url="/day-1/"
-    backgroundImageWebp="/img/day3.webp"
-    backgroundImageJpeg="/img/day3.jpg"
+    backgroundImageWebp="/img/zlatehory.webp"
+    backgroundImageJpeg="/img/zlatehory.jpg"
   >
     <RoadDetails slot="details" distance="81km" up="1093 m" time="4h 54min" />
   </FullWidthBanner>
 
   <FullWidthBanner
     id="day4"
-    headline="Day 4"
+    headline="Etap 4"
     description={`Międzylesie - Lądek Zdrój`}
     incline="Zobacz więcej"
     descriptionSecond={`🚩
@@ -159,15 +170,15 @@ const pageTitle = "Coig - product website boilerplate";
       Finał w Lądku-Zdroju – jednym z najstarszych uzdrowisk Europy.
       `}
     url="/day-1/"
-    backgroundImageWebp="/img/ema.webp"
-    backgroundImageJpeg="/img/ema.jpg"
+    backgroundImageWebp="/img/miedzygorze.webp"
+    backgroundImageJpeg="/img/miedzygorze.jpg"
   >
     <RoadDetails slot="details" distance="57km" up="1215m" time="4h 3min*" />
   </FullWidthBanner>
 
   <FullWidthBanner
     id="day5"
-    headline="Day 5"
+    headline="Etap 5"
     description={`Lądek Zdrój - Kudowa Zdrój`}
     incline="Zobacz więcej"
     descriptionSecond={`🚩
@@ -178,15 +189,15 @@ const pageTitle = "Coig - product website boilerplate";
       Kłodzko zachwyci architekturą, a meta w Kudowie – bliskość Czech i klimat uzdrowiskowego spokoju.
       `}
     url="/day-1/"
-    backgroundImageWebp="/img/ema.webp"
-    backgroundImageJpeg="/img/ema.jpg"
+    backgroundImageWebp="/img/kudowa.webp"
+    backgroundImageJpeg="/img/kudowa.jpg"
   >
     <RoadDetails slot="details" distance="94km" up="1181m" time="1h 45min*" />
   </FullWidthBanner>
 
   <FullWidthBanner
     id="day6"
-    headline="Day 6"
+    headline="Etap 6"
     description={`Kudowa Zdrój - České Petrovice`}
     incline="Zobacz więcej"
     descriptionSecond={`🚩
@@ -197,15 +208,15 @@ const pageTitle = "Coig - product website boilerplate";
      kontemplację i ładowanie baterii – zarówno fizycznych, jak i duchowych.
       `}
     url="/day-1/"
-    backgroundImageWebp="/img/day3.webp"
-    backgroundImageJpeg="/img/day3.jpg"
+    backgroundImageWebp="/img/Velka-Destna-Czechia.webp"
+    backgroundImageJpeg="/img/Velka-Destna-Czechia.jpg"
   >
     <RoadDetails slot="details" distance="57km" up="1001m" time="3h 28min*" />
   </FullWidthBanner>
 
   <FullWidthBanner
     id="day7"
-    headline="Day 7"
+    headline="Etap 7"
     description={`České Petrovice-Kłodzko`}
     incline="Zobacz więcej"
     descriptionSecond={`🚩
@@ -214,8 +225,8 @@ const pageTitle = "Coig - product website boilerplate";
       Teren falujący, malowniczy, z historią kopalń, fortyfikacji i przygranicznych opowieści. 
       Meta w Kłodzku`}
     url="/day-1/"
-    backgroundImageWebp="/img/ema.webp"
-    backgroundImageJpeg="/img/ema.jpg"
+    backgroundImageWebp="/img/klodzko.webp"
+    backgroundImageJpeg="/img/klodzko.jpg"
   >
     <RoadDetails slot="details" distance="92km" up="1017m" time="5h 31min*" />
   </FullWidthBanner>
