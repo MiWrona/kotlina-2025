@@ -37,21 +37,51 @@ h1 {
 .hamburger {
   padding-right: 20px;
   cursor: pointer;
+  width: 40px;
+  height: 35px;
+  position: relative;
 }
 
 .hamburger .line {
-  display: block;
+  position: absolute;
+  left: 0;
   width: 40px;
   height: 5px;
-  margin-bottom: 10px;
-  background-color: #ff9776;
+  background-color: #cacaca;
+  border-radius: 5px;
+  transition: all 0.4s ease;
 }
 
+.hamburger .line:nth-child(1) {
+  top: 0;
+}
+
+.hamburger .line:nth-child(2) {
+  top: 15px;
+}
+
+.hamburger .line:nth-child(3) {
+  top: 30px;
+}
+
+.hamburger.expanded .line:nth-child(1) {
+  transform: rotate(45deg);
+  top: 15px;
+}
+
+.hamburger.expanded .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.expanded .line:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 15px;
+}
 .nav-links {
   width: 100%;
   top: 5rem;
   left: 48px;
-  background-color: #ff9776;
+  background-color: #f1ebebce;
   display: none;
   margin: 0;
 }
@@ -68,7 +98,7 @@ h1 {
 
 .nav-links a:hover,
 .nav-links a:focus {
-  background-color: #ff9776;
+  background-color: #e4dcdc77;
 }
 
 .expanded {

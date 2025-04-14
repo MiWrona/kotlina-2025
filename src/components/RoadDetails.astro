@@ -1,5 +1,5 @@
 ---
-const { distance, up, time } = Astro.props;
+const { text, distance, up, time } = Astro.props;
 ---
 
 <style>
@@ -28,7 +28,9 @@ const { distance, up, time } = Astro.props;
   }
 </style>
 
+<p>{text}</p>
 <div class="road-details">
+
   {
     distance && (
       <div class="detail-item">

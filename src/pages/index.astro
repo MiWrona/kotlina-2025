@@ -6,6 +6,7 @@ import FullWidthBanner from "../components/FullWidthBanner.astro";
 import AlpeOne from "../assets/img/alpe.jpeg";
 import RoadDetails from "../components/RoadDetails.astro";
 import GlitchImageBanner from "../components/GlitchImageBanner.astro";
+import ScrollingHeader from '../components/ScrollingHeader.astro'
 
 const pageTitle = "Coig - product website boilerplate";
 ---
@@ -90,12 +91,17 @@ const pageTitle = "Coig - product website boilerplate";
         <p>O jazdę na rowerze</p>
       </Toggle>
     </div>
-  </div>
-
+    <ScrollingHeader />
+  </div> 
+  <!-- Dzień 1  
+   
+    https://www.strava.com/routes/3339199849723845918
+    
+    -->
   <FullWidthBanner
     id="day1"
     headline="Etap 1"
-    description={`Kato - Ostrava`}
+    description={`Kato - Ostrava 08.06-09.06`}
     incline="Zobacz więcej"
     descriptionSecond={`🚩
     Z betonowej dżungli Katowic ruszasz na południe przez Żory i Rybnik. 
@@ -114,10 +120,14 @@ const pageTitle = "Coig - product website boilerplate";
     <RoadDetails slot="details" distance="124km" up="716m" time="6h 18min*" />
   </FullWidthBanner>
 
+    <!-- Dzień 2 
+   
+    https://www.strava.com/routes/3339205520359176582 -->
+
   <FullWidthBanner
     id="day2"
     headline="Etap 2"
-    description={`Ostrava - Zlate Hory`}
+    description={`Ostrava - Zlate Hory 09.06-10.06`}
     incline="Zobacz więcej"
     descriptionSecond={`🚩
       Płasko, zielono, przyjemnie... do czasu. 
@@ -129,7 +139,7 @@ const pageTitle = "Coig - product website boilerplate";
     backgroundImageWebp="/img/kopa.webp"
     backgroundImageJpeg="/img/kopa.jpg"
   >
-    <RoadDetails slot="details" distance="115km" up="894m" time="5h 11min*" />
+    <RoadDetails slot="details" distance="115km" up="641m" time="6h 11min*" />
   </FullWidthBanner>
   <GlitchImageBanner
     webpSrc="/img/alpe-team.jpeg"
@@ -138,10 +148,13 @@ const pageTitle = "Coig - product website boilerplate";
     id="alpe-glitch"
     height="550px"
   />
+    <!-- Dzień 3 
+   
+    https://www.strava.com/routes/3339214198752284038 -->
   <FullWidthBanner
     id="day3"
     headline="Etap 3"
-    description={`Zlate Hory - Międzylesie`}
+    description={`Zlate Hory - Międzylesie 10.06-11.06`}
     incline="Zobacz więcej"
     descriptionSecond={`🚩
       Witamy w górach. Tego dnia szlak pnie się przez serce Wysokiego Jesionika, 
@@ -157,10 +170,13 @@ const pageTitle = "Coig - product website boilerplate";
     <RoadDetails slot="details" distance="81km" up="1093 m" time="4h 54min" />
   </FullWidthBanner>
 
+  <!-- Dzień 4  
+   
+    Wariant mniejszy https://www.strava.com/routes/3339223215519407494 -->
   <FullWidthBanner
     id="day4"
     headline="Etap 4"
-    description={`Międzylesie - Lądek Zdrój`}
+    description={`Międzylesie - Lądek Zdrój 11.06-12.06`}
     incline="Zobacz więcej"
     descriptionSecond={`🚩
       Kręte drogi, wijące się niczym smoki przez Masyw Śnieżnika. 
@@ -172,9 +188,15 @@ const pageTitle = "Coig - product website boilerplate";
     url="/day-1/"
     backgroundImageWebp="/img/miedzygorze.webp"
     backgroundImageJpeg="/img/miedzygorze.jpg"
+
   >
     <RoadDetails slot="details" distance="57km" up="1215m" time="4h 3min*" />
+    <RoadDetails slot="details" text="Trasa alternatywna" distance="45km" up="765m" time="2h 44min*" />
   </FullWidthBanner>
+
+    <!-- Dzień 5  
+   
+   https://www.strava.com/routes/3339225903883417192 -->
 
   <FullWidthBanner
     id="day5"
@@ -194,7 +216,9 @@ const pageTitle = "Coig - product website boilerplate";
   >
     <RoadDetails slot="details" distance="94km" up="1181m" time="1h 45min*" />
   </FullWidthBanner>
-
+  <!-- Dzień 6  
+   
+    Wariant mniejszy https://www.strava.com/routes/3339223215519407494 -->
   <FullWidthBanner
     id="day6"
     headline="Etap 6"
@@ -213,7 +237,9 @@ const pageTitle = "Coig - product website boilerplate";
   >
     <RoadDetails slot="details" distance="57km" up="1001m" time="3h 28min*" />
   </FullWidthBanner>
-
+  <!-- Dzień 7  
+   
+    Wariant mniejszy https://www.strava.com/routes/3339223215519407494 -->
   <FullWidthBanner
     id="day7"
     headline="Etap 7"
@@ -228,6 +254,9 @@ const pageTitle = "Coig - product website boilerplate";
     backgroundImageWebp="/img/klodzko.webp"
     backgroundImageJpeg="/img/klodzko.jpg"
   >
-    <RoadDetails slot="details" distance="92km" up="1017m" time="5h 31min*" />
+    <RoadDetails slot="details" distance="92km" up="1017m" time="5h 31min*"/>
+    
+    
+    <RoadDetails slot="details" text="Trasa alternatywna" distance="47km" up="300m" time="2h 51min*">
   </FullWidthBanner>
 </BaseLayout>

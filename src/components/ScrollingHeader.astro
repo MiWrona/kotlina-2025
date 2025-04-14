@@ -1,0 +1,44 @@
+---
+---
+<div class="scrolling-header-bg-bottom">
+    <div class="scrolling-header-track">
+      <span>KOTLINA • KOTLINA • KOTLINA • KOTLINA • KOTLINA • </span>
+      <span>KOTLINA • KOTLINA • KOTLINA • KOTLINA • KOTLINA • </span>
+    </div>
+  </div>
+  
+  <style>
+  .scrolling-header-bg-bottom {
+    position: fixed;
+    bottom: 5vh;
+    left: 0;
+    width: 100vw;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0.12;
+    z-index: 10;
+  }
+  
+  .scrolling-header-track {
+    display: flex;
+    min-width: 200%;
+    animation: scrollText 90s linear infinite;
+    font-size: 35.5rem;
+    color: #f4e9c3;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    letter-spacing: 3px;
+    white-space: nowrap;
+  }
+  
+  @keyframes scrollText {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  </style>
+  
