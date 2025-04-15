@@ -5,11 +5,18 @@ import "../styles/global.css";
 const { pageTitle } = Astro.props;
 ---
 
-
-  <html lang="pl">
+<html lang="pl">
   <head>
     <meta charset="utf-8" />
-    <meta name="description" content="Wrona Sport – wyzwania.">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="description" content="Wrona Sport – wyzwania." />
     <title>Wrona Sport – wyzwania rowerowe</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
@@ -18,7 +25,7 @@ const { pageTitle } = Astro.props;
   </head>
   <body>
     <Header />
-     <slot />
+    <slot />
     <Footer />
     <script>
       import "../scripts/menu.js";
@@ -31,6 +38,6 @@ const { pageTitle } = Astro.props;
         "url": "https://wrona-sport.pl",
         "logo": "https://wrona-sport.pl/images/logo.png"
       }
-      </script>
+    </script>
   </body>
 </html>
