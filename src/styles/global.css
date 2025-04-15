@@ -77,23 +77,30 @@ h1 {
   transform: rotate(-45deg);
   top: 15px;
 }
+
 .nav-links {
-  width: 100%;
+  text-align: center;
+  margin: 0;
+}
+
+
+.nav-links {
   top: 5rem;
   left: 48px;
-  background-color: #f1ebebce;
-  display: none;
   margin: 0;
 }
 
 .nav-links a {
-  display: block;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  color: #f4e9c3;
+  width: 40px;
   padding: 10px 0;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
   text-transform: uppercase;
+  margin-bottom: 15px;
 }
 
 .nav-links a:hover,
@@ -107,10 +114,11 @@ h1 {
 
 @media screen and (min-width: 636px) {
   .nav-links {
-    margin-left: 5em;
-    display: block;
+    width: 100%;
+    margin-left: 2em;
+    justify-content: space-evenly;
+    display: flex;
     position: static;
-    width: auto;
     background: none;
   }
 
