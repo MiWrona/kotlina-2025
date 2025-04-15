@@ -1,9 +1,31 @@
 ---
 const { text } = Astro.props;
 ---
+
+<script>
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const track = document.querySelector(".scrolling-header-track");
+
+    // Maksymalny i minimalny rozmiar tekstu (dopasuj do swoich potrzeb)
+    const maxSize = 35.5;
+    const minSize = 10;
+
+    // Wartość scrolla, po której osiągamy minimum
+    const maxScroll = 1000;
+
+    // Oblicz skalę
+    const newSize = Math.max(minSize, maxSize - (scrollTop / maxScroll) * (maxSize - minSize));
+
+    track.style.fontSize = `${newSize}rem`;
+  });
+</script>
+
+
+
 <div class="scrolling-header-bg-bottom">
     <div class="scrolling-header-track">
-      <span>{text}•{text}</span>
+      <span>{text}•{text}•{text}•{text}•{text}•{text}•{text}•{text}</span>
 
 
     </div>
@@ -18,7 +40,7 @@ const { text } = Astro.props;
     z-index: -1;
     overflow: hidden;
     pointer-events: none;
-    opacity: 0.12;
+    opacity: 0.10;
     z-index: 10;
   }
   
@@ -32,7 +54,9 @@ const { text } = Astro.props;
     font-weight: bold;
     letter-spacing: 3px;
     white-space: nowrap;
+    will-change: font-size;
   }
+  
 
   @media screen and (min-width: 636px) { 
     .scrolling-header-track {
