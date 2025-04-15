@@ -47,7 +47,7 @@ h1 {
   left: 0;
   width: 40px;
   height: 5px;
-  background-color: #cacaca;
+  background-color: #f4e9c3;
   border-radius: 5px;
   transition: all 0.4s ease;
 }
@@ -78,16 +78,14 @@ h1 {
   top: 15px;
 }
 
-.nav-links {
-  text-align: center;
-  margin: 0;
-}
 
 
 .nav-links {
   top: 5rem;
   left: 48px;
   margin: 0;
+  text-align: center;
+  display: none;
 }
 
 .nav-links a {
@@ -111,6 +109,12 @@ h1 {
 .expanded {
   display: unset;
 }
+.nav-secondary-col {
+  width: 100%;
+  width: auto;
+}
+
+
 
 @media screen and (min-width: 636px) {
   .nav-links {
@@ -135,6 +139,11 @@ h1 {
     display: flex;
     justify-content: space-between;
   }
+  
+  .nav-secondary-col {
+    width: 100%;
+  }
+
 }
 
 .container {
