@@ -49,6 +49,15 @@ const pageTitle = "Coig - product website boilerplate";
     z-index: 1;
   }
 
+  .description-paragraph {
+    font-size: 1rem;
+    color: #f4e9c3;
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+    margin-top: 1rem;
+    animation: distortionSkew 1s alternate ease-in-out;
+  } 
+
   @keyframes zoomPan {
     0% {
       transform: scale(1) translate(0, 0);
@@ -70,11 +79,11 @@ const pageTitle = "Coig - product website boilerplate";
   @keyframes distortionSkew {
     0% {
       transform: skew(0deg, 0deg);
-      filter: blur(10px);
+      filter: blur(20px);
     }
     100% {
-      transform: skew(1deg, -2deg);
-      filter: blur(1px);
+      transform: skew(3deg, -1deg);
+      filter: blur(5px);
     }
   }
 </style>
@@ -82,16 +91,25 @@ const pageTitle = "Coig - product website boilerplate";
 <BaseLayout>
   <div class="hero-wrapper">
     <div class="centered-counter">
-      <Counter />
+     
       <Toggle
         id="szczegoly-etapu"
         buttonLabel="O co chodzi?"
         buttonLabelAlt="ok"
       >
-        <p>O jazdę na rowerze</p>
+      <div class="description-paragraph">
+        <p>O doświadczenia, relaks, ucieczkę i wyzwanie.</p>
+        <p>O 555km przygodę z 5800m przewyższenia</p>
+        <p>O możliwość dołączenia do bandy ambitnych pasjontów i zostawienia pieniędzy w miejscu, które tego potrzebuje</p>
+  
+       </div>
+
+     </div>
+        
       </Toggle>
     </div>
     <ScrollingHeader />
+    <Counter />
   </div> 
   <!-- Dzień 1  
    
