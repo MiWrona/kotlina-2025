@@ -3,4 +3,3 @@ document.querySelector(".hamburger").addEventListener("click", () => {
   hamburger.classList.toggle("expanded");
   document.querySelector(".nav-links").classList.toggle("expanded");
 });
-

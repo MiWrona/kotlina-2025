@@ -26,7 +26,7 @@ const {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #f4e9c3
+    color: #f4e9c3;
   }
 
   .banner picture,
@@ -109,7 +109,7 @@ const {
   }
 
   .date-paragraph {
-    font-size: .9rem !important;
+    font-size: 0.9rem !important;
     margin-bottom: 0.5rem;
   }
 
@@ -124,6 +124,10 @@ const {
       font-size: 1.8rem;
     }
 
+    .banner-details {
+      margin-right: 20px;
+      margin-left: 20px;
+    }
     .banner-content p {
       font-size: 1rem;
     }
@@ -139,7 +143,7 @@ const {
   <div class="banner-content">
     <h1>{headline}</h1>
     <p>{description}</p>
-    <p class="date-paragraph">{date}</p> 
+    <p class="date-paragraph">{date}</p>
     <slot name="details" />
     <button class="banner-toggle-button" onclick={`toggleDetails('${id}')`}
       >Zobacz więcej</button
@@ -147,8 +151,6 @@ const {
     <div class="banner-details" id={`details-${id}`}>
       {descriptionSecond}
       <StravaPopupButton embedId={mapID} id={id} />
-
-
     </div>
 
     <p>{descriptionThird}</p>

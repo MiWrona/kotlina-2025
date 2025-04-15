@@ -5,8 +5,8 @@ import Counter from "../components/Counter.astro";
 import FullWidthBanner from "../components/FullWidthBanner.astro";
 import RoadDetails from "../components/RoadDetails.astro";
 import GlitchImageBanner from "../components/GlitchImageBanner.astro";
-import ScrollingHeader from '../components/ScrollingHeader.astro'
-import StravaPopupButton from '../components/StravaPopupButton.astro';
+import ScrollingHeader from "../components/ScrollingHeader.astro";
+import StravaPopupButton from "../components/StravaPopupButton.astro";
 
 const pageTitle = "Coig - product website boilerplate";
 ---
@@ -14,7 +14,7 @@ const pageTitle = "Coig - product website boilerplate";
 <style>
   .centered-counter {
     position: absolute;
-    top: 75%;
+    top: 67%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2; /* nad tłem i overlayem */
@@ -24,7 +24,7 @@ const pageTitle = "Coig - product website boilerplate";
   .hero-wrapper {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: 100vh; /* <-- ZMIANA tutaj */
     overflow: hidden;
     background-color: black;
   }
@@ -57,7 +57,7 @@ const pageTitle = "Coig - product website boilerplate";
     text-align: center;
     margin-top: 1rem;
     animation: distortionSkew 1s alternate ease-in-out;
-  } 
+  }
 
   @keyframes zoomPan {
     0% {
@@ -92,37 +92,39 @@ const pageTitle = "Coig - product website boilerplate";
 <BaseLayout>
   <div class="hero-wrapper">
     <div class="centered-counter">
-    
       <Toggle
         id="szczegoly-etapu"
         buttonLabel="O co chodzi?"
         buttonLabelAlt="ok"
       >
-      <div class="description-paragraph">
-        <p>O doświadczenia, relaks, ucieczkę i wyzwanie. O 555km przygodę z 5800m przewyższenia</p>
-        <p>O możliwość dołączenia do bandy ambitnych pasjontów i zostawienia pieniędzy w miejscu, które tego potrzebuje</p>
-  
-       </div>
-
-     </div>
-        
+        <div class="description-paragraph">
+          <p>
+            O doświadczenia, relaks, ucieczkę i wyzwanie. O 555km przygodę z
+            5800m przewyższenia
+          </p>
+          <p>
+            O możliwość dołączenia do bandy ambitnych pasjontów i zostawienia
+            pieniędzy w miejscu, które tego potrzebuje
+          </p>
+        </div>
       </Toggle>
     </div>
-    <ScrollingHeader  text="KOTLINA" />
-    <Counter />
-  </div> 
-  <!-- Dzień 1  
+  </div>
+  <ScrollingHeader text="KOTLINA" />
+  <Counter />
+</BaseLayout>
+<!-- Dzień 1  
    
     https://www.strava.com/routes/3339199849723845918
     
     -->
-  <FullWidthBanner
-    id="day1"
-    headline="Etap 1"
-    description={`Kato - Ostrava`}
-    date="08.06-09.06"
-    incline="Zobacz więcej"
-    descriptionSecond={`🚩
+<FullWidthBanner
+  id="day1"
+  headline="Etap 1"
+  description={`Kato - Ostrava`}
+  date="08.06-09.06"
+  incline="Zobacz więcej"
+  descriptionSecond={`🚩
     Z betonowej dżungli Katowic ruszasz na południe przez Żory i Rybnik. 
     To dzień rozgrzewki, ale nie łudź się – czekają na Ciebie pagórki Śląska, 
     ciasne leśne dukty i gładkie asfaltowe nitki. Finał? Legendarna Hałda Ema w Ostrawie – 
@@ -132,152 +134,149 @@ const pageTitle = "Coig - product website boilerplate";
     pierwszego
     dnia. Kofola, Radegast, Ser
     `}
-    mapID="3339199849723845918"
-    backgroundImageWebp="/img/ema.webp"
-    backgroundImageJpeg="/img/ema.jpg"
-  >
-    <RoadDetails slot="details" distance="124km" up="716m" time="6h 18min*" />
-  </FullWidthBanner>
-    <!-- Dzień 2 
+  mapID="3339199849723845918"
+  backgroundImageWebp="/img/ema.webp"
+  backgroundImageJpeg="/img/ema.jpg"
+>
+  <RoadDetails slot="details" distance="124km" up="716m" time="6h 18min*" />
+</FullWidthBanner>
+<!-- Dzień 2 
    
     https://www.strava.com/routes/3339205520359176582 -->
 
-  <FullWidthBanner
-    id="day2"
-    headline="Etap 2"
-    description={`Ostrava - Zlate Hory`}
-    date="09.06-10.06"
-    incline="Zobacz więcej"
-    descriptionSecond={`🚩
+<FullWidthBanner
+  id="day2"
+  headline="Etap 2"
+  description={`Ostrava - Zlate Hory`}
+  date="09.06-10.06"
+  incline="Zobacz więcej"
+  descriptionSecond={`🚩
       Płasko, zielono, przyjemnie... do czasu. 
       Przecinasz czeskie wsie, suniesz dolinami rzeki Opavy i przekraczasz historyczne granice. 
       Po drodze mijać będziesz urocze miasta Krnov i Opava – idealne na chwilę odpoczynku. 
       Ale końcówka to festiwal podjazdów, które wyniosą Cię aż do uzdrowiskowego Zlaté Hory, tuż u stóp Jesioników.
       `}
-    mapID="3339205520359176582"
-    backgroundImageWebp="/img/kopa.webp"
-    backgroundImageJpeg="/img/kopa.jpg"
-  >
-    <RoadDetails slot="details" distance="115km" up="641m" time="6h 11min*" />
-  </FullWidthBanner>
-  <GlitchImageBanner
-    webpSrc="/img/alpe-team.jpeg"
-    jpgSrc="/img/alpe-team.jpeg"
-    alt="Drużyna Alpe"
-    id="alpe-glitch"
-    height="550px"
-  />
-    <!-- Dzień 3 
+  mapID="3339205520359176582"
+  backgroundImageWebp="/img/kopa.webp"
+  backgroundImageJpeg="/img/kopa.jpg"
+>
+  <RoadDetails slot="details" distance="115km" up="641m" time="6h 11min*" />
+</FullWidthBanner>
+<GlitchImageBanner
+  webpSrc="/img/alpe-team.jpeg"
+  jpgSrc="/img/alpe-team.jpeg"
+  alt="Drużyna Alpe"
+  id="alpe-glitch"
+  height="550px"
+/>
+<!-- Dzień 3 
    
     https://www.strava.com/routes/3339214198752284038 -->
-  <FullWidthBanner
-    id="day3"
-    headline="Etap 3"
-    description={`Zlate Hory - Międzylesie`}
-    date="10.06-11.06"
-    incline="Zobacz więcej"
-    descriptionSecond={`🚩
+<FullWidthBanner
+  id="day3"
+  headline="Etap 3"
+  description={`Zlate Hory - Międzylesie`}
+  date="10.06-11.06"
+  incline="Zobacz więcej"
+  descriptionSecond={`🚩
       Witamy w górach. Tego dnia szlak pnie się przez serce Wysokiego Jesionika, 
       przez miejscowości jak Lipová-lázně, Jeseník, Hanušovice i Kraliky. 
       Góry nie dadzą Ci chwili wytchnienia – trzy konkretne podjazdy rozgrzeją nogi, 
       ale i wynagrodzą Ci to widokami z bajki.
        Po drodze spotkasz ruiny fortyfikacji, leśne ścieżki i ciszę, która brzmi jak muzyka.
       `}
-    mapID="3339214198752284038"
-    backgroundImageWebp="/img/zlatehory.webp"
-    backgroundImageJpeg="/img/zlatehory.jpg"
-  >
-    <RoadDetails slot="details" distance="81km" up="1093 m" time="4h 54min" />
-  </FullWidthBanner>
+  mapID="3339214198752284038"
+  backgroundImageWebp="/img/zlatehory.webp"
+  backgroundImageJpeg="/img/zlatehory.jpg"
+>
+  <RoadDetails slot="details" distance="81km" up="1093 m" time="4h 54min" />
+</FullWidthBanner>
 
-  <!-- Dzień 4  
+<!-- Dzień 4  
    
     Wariant mniejszy https://www.strava.com/routes/3339223215519407494 -->
-  <FullWidthBanner
-    id="day4"
-    headline="Etap 4"
-    description={`Międzylesie - Lądek Zdrój`}
-    date="11.06-12.06"
-    incline="Zobacz więcej"
-    descriptionSecond={`🚩
+<FullWidthBanner
+  id="day4"
+  headline="Etap 4"
+  description={`Międzylesie - Lądek Zdrój`}
+  date="11.06-12.06"
+  incline="Zobacz więcej"
+  descriptionSecond={`🚩
       Kręte drogi, wijące się niczym smoki przez Masyw Śnieżnika. 
       Mijając Międzygórze, wspinasz się serpentynami przez górskie przełęcze wśród szczytów i głębokich lasów. 
       Kraina wodospadów i legend – w tym Wodospad Wilczki i kościół w Międzygórzu – 
       to miejsce, gdzie mit spotyka rzeczywistość. 
       Finał w Lądku-Zdroju – jednym z najstarszych uzdrowisk Europy.
       `}
-    mapID="3339223215519407494"
-    backgroundImageWebp="/img/miedzygorze.webp"
-    backgroundImageJpeg="/img/miedzygorze.jpg"
+  mapID="3339223215519407494"
+  backgroundImageWebp="/img/miedzygorze.webp"
+  backgroundImageJpeg="/img/miedzygorze.jpg"
+>
+  <RoadDetails slot="details" distance="45km" up="765m" time="2h 44min*" />
+</FullWidthBanner>
 
-  >
-    <RoadDetails slot="details" distance="45km" up="765m" time="2h 44min*" />
-  </FullWidthBanner>
-
-    <!-- Dzień 5  
+<!-- Dzień 5  
    
    https://www.strava.com/routes/3339225903883417192 -->
 
-  <FullWidthBanner
-    id="day5"
-    headline="Etap 5"
-    description={`Lądek Zdrój - Kudowa Zdrój`}
-    date="12.06-13.06"
-    incline="Zobacz więcej"
-    descriptionSecond={`🚩
+<FullWidthBanner
+  id="day5"
+  headline="Etap 5"
+  description={`Lądek Zdrój - Kudowa Zdrój`}
+  date="12.06-13.06"
+  incline="Zobacz więcej"
+  descriptionSecond={`🚩
       Etap klasy premium. 
       Przejeżdżasz przez całe Góry Stołowe, gdzie krajobraz wygląda jak z innej planety. 
       Słynne formacje skalne w Błędnych Skałach, Polanica-Zdrój, Duszniki-Zdrój – to nie tylko uzdrowiska, 
       to żywe muzea historii i natury. 
       Kłodzko zachwyci architekturą, a meta w Kudowie – bliskość Czech i klimat uzdrowiskowego spokoju.
       `}
-    mapID="3339225903883417192"
-    backgroundImageWebp="/img/kudowa.webp"
-    backgroundImageJpeg="/img/kudowa.jpg"
-  >
-    <RoadDetails slot="details" distance="94km" up="1181m" time="5h 20min*" />
-  </FullWidthBanner>
-  <!-- Dzień 6  
+  mapID="3339225903883417192"
+  backgroundImageWebp="/img/kudowa.webp"
+  backgroundImageJpeg="/img/kudowa.jpg"
+>
+  <RoadDetails slot="details" distance="94km" up="1181m" time="5h 20min*" />
+</FullWidthBanner>
+<!-- Dzień 6  
    
     Wariant mniejszy https://www.strava.com/routes/3339223215519407494 -->
-  <FullWidthBanner
-    id="day6"
-    headline="Etap 6"
-    description={`Kudowa Zdrój - České Petrovice`}
-    incline="Zobacz więcej"
-    date="13.06-14.06"
-    descriptionSecond={`🚩
+<FullWidthBanner
+  id="day6"
+  headline="Etap 6"
+  description={`Kudowa Zdrój - České Petrovice`}
+  incline="Zobacz więcej"
+  date="13.06-14.06"
+  descriptionSecond={`🚩
      Krótszy etap, ale intensywny. 
      Przemierzasz przez Orlické hory – dzikie, surowe, niedoceniane. 
      Szlak prowadzi przez leśne serpentyny i zaciszne doliny. 
      Spotkasz tu więcej saren niż ludzi. Idealny dzień na 
      kontemplację i ładowanie baterii – zarówno fizycznych, jak i duchowych.
       `}
-    mapID="3339223215519407494"
-    backgroundImageWebp="/img/Velka-Destna-Czechia.webp"
-    backgroundImageJpeg="/img/Velka-Destna-Czechia.jpg"
-  >
-    <RoadDetails slot="details" distance="57km" up="1001m" time="3h 28min*" />
-  </FullWidthBanner>
-  <!-- Dzień 7  
+  mapID="3339223215519407494"
+  backgroundImageWebp="/img/Velka-Destna-Czechia.webp"
+  backgroundImageJpeg="/img/Velka-Destna-Czechia.jpg"
+>
+  <RoadDetails slot="details" distance="57km" up="1001m" time="3h 28min*" />
+</FullWidthBanner>
+<!-- Dzień 7  
    
     Wariant mniejszy https://www.strava.com/routes/3339223215519407494 -->
-  <FullWidthBanner
-    id="day7"
-    headline="Etap 7"
-    description={`České Petrovice-Kłodzko`}
-    incline="Zobacz więcej"
-    date="14.06-15.06"
-    descriptionSecond={`🚩
+<FullWidthBanner
+  id="day7"
+  headline="Etap 7"
+  description={`České Petrovice-Kłodzko`}
+  incline="Zobacz więcej"
+  date="14.06-15.06"
+  descriptionSecond={`🚩
       Ostatni dzień to pełna pętla przez graniczne pasma, z powrotem w kierunku Kłodzka. 
       Przejeżdżasz przez Bystrzycę Kłodzką, a potem przez dzikie okolice Nowej Rudy i Ścinawki. 
       Teren falujący, malowniczy, z historią kopalń, fortyfikacji i przygranicznych opowieści. 
       Meta w Kłodzku`}
-    mapID="3339223215519407494"
-    backgroundImageWebp="/img/klodzko.webp"
-    backgroundImageJpeg="/img/klodzko.jpg"
-  >
-
-    <RoadDetails slot="details" distance="47km" up="300m" time="2h 51min*">
-  </FullWidthBanner>
-</BaseLayout>
+  mapID="3339223215519407494"
+  backgroundImageWebp="/img/klodzko.webp"
+  backgroundImageJpeg="/img/klodzko.jpg"
+>
+  <RoadDetails slot="details" distance="47km" up="300m" time="2h 51min*" />
+</FullWidthBanner>
