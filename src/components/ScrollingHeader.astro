@@ -5,44 +5,52 @@ const { text } = Astro.props;
 <script>
   window.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
-    const track = document.querySelector(".scrolling-header-track-inner");
+    const trackWrapper = document.querySelector(
+      ".scrolling-header-scale-wrapper"
+    );
 
     const maxScale = 1;
-    const minScale = 10 / 35.5;
-    const maxScroll = 3000;
+    const minScale = 10 / 55.5;
+    const maxScroll = 6000;
 
     const newScale = Math.max(
       minScale,
       maxScale - (scrollTop / maxScroll) * (maxScale - minScale)
     );
 
-    track.style.setProperty("--scroll-scale", newScale);
+    trackWrapper.style.setProperty("--scroll-scale", newScale);
   });
 </script>
 
 <div class="scrolling-header-bg-bottom">
   <div class="scrolling-header-track">
-    <div class="scrolling-header-track-inner">
-      <span
-        >{text} • {text} • {text} • {text} • {text} • {text} • {text} • {text} •
-      </span>
-      <span
-        >{text} • {text} • {text} • {text} • {text} • {text} • {text} • {text} •
-      </span>
+    <div class="scrolling-header-scale-wrapper">
+      <div class="scrolling-header-track-inner">
+        <span>{text}</span>
+        <span>{text}</span>
+        <span>{text}</span>
+        <span>{text}</span>
+      </div>
     </div>
   </div>
 </div>
 
 <style>
+  @property --scroll-scale {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 1;
+  }
+
   .scrolling-header-bg-bottom {
     position: fixed;
-    bottom: 30px;
+    bottom: 0;
     left: 0;
     width: 100vw;
     z-index: 10;
-    overflow: hidden;
     pointer-events: none;
-    opacity: 0.1;
+    opacity: 0.08;
+    overflow: visible;
   }
 
   .scrolling-header-track {
@@ -50,32 +58,36 @@ const { text } = Astro.props;
     overflow: hidden;
   }
 
+  .scrolling-header-scale-wrapper {
+    transform: scale(var(--scroll-scale));
+    transform-origin: bottom left;
+    will-change: transform;
+  }
+
   .scrolling-header-track-inner {
-    display: flex;
-    animation: scrollText 30s linear infinite;
-    font-size: 34.5rem;
+    display: inline-flex;
+    animation: scrollText 60s linear infinite;
+    font-size: 30rem;
     color: #f4e9c3;
     font-family: "Raleway", sans-serif;
     font-weight: bold;
     letter-spacing: 3px;
     white-space: nowrap;
     will-change: transform;
-    transform: scale(var(--scroll-scale, 1));
-    transform-origin: bottom left;
   }
 
   @media screen and (max-width: 636px) {
     .scrolling-header-track-inner {
-      animation-duration: 8s;
+      animation-duration: 60s;
     }
   }
 
   @keyframes scrollText {
     0% {
-      transform: translateX(0%) scale(var(--scroll-scale, 1));
+      transform: translateX(0%);
     }
     100% {
-      transform: translateX(-50%) scale(var(--scroll-scale, 1));
+      transform: translateX(-50%);
     }
   }
 </style>
