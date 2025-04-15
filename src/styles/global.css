@@ -168,6 +168,7 @@ nav a {
   .nav-links a {
     display: inline-block;
     padding: 15px 20px;
+    margin-right: 10px;
   }
 
   .hamburger {

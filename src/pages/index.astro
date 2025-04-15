@@ -14,12 +14,19 @@ const pageTitle = "Coig - product website boilerplate";
 <style>
   .centered-counter {
     position: absolute;
-    top: 67%;
+    top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2; /* nad tłem i overlayem */
+    z-index: 2;
     text-align: center;
     width: 100%;
+  }
+
+  /* Na małych ekranach – zmniejsz top */
+  @media screen and (max-width: 636px) {
+    .centered-counter {
+      top: 65%;
+    }
   }
   .hero-wrapper {
     position: relative;
@@ -110,7 +117,7 @@ const pageTitle = "Coig - product website boilerplate";
       </Toggle>
     </div>
   </div>
-  <ScrollingHeader text="KOTLINA" />
+  <ScrollingHeader text="KOTLINA " />
   <Counter />
 </BaseLayout>
 <!-- Dzień 1  
