@@ -5,8 +5,10 @@ const { embedId = "3339199849723845918", id = "default" } = Astro.props;
 <style>
   .overlay {
     position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.6);
     display: none;
     justify-content: center;
@@ -21,20 +23,21 @@ const { embedId = "3339199849723845918", id = "default" } = Astro.props;
   }
 
   .popup {
-  position: relative;
-  background: white;
-  width: 75vw;
-  max-height: 80vh;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
-  display: flex;
-  flex-direction: column;
-}
+    position: relative;
+    background: white;
+    width: 75vw;
+    max-height: 80vh;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+  }
 
   .popup button.close-btn {
     position: absolute;
-    top: 10px; right: 10px;
+    top: 10px;
+    right: 10px;
     background: #fc5200;
     color: white;
     border: none;
@@ -45,20 +48,20 @@ const { embedId = "3339199849723845918", id = "default" } = Astro.props;
   }
 
   .strava-embed-placeholder {
-  width: 100%;
-  flex-grow: 1;
-  height: 100%;
-}
+    width: 100%;
+    flex-grow: 1;
+    height: 100%;
+  }
 
   iframe {
-  width: 100% !important;
-  height: 100% !important;
-  border: none;
-  flex-grow: 1;
-}
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+    flex-grow: 1;
+  }
 
   .button-map {
-    background: #ff980052;
+    background: #ff980099;
     color: #cacaca;
     border: none;
     padding: 0.5rem 1rem;
@@ -87,27 +90,30 @@ const { embedId = "3339199849723845918", id = "default" } = Astro.props;
       data-terrain="3d"
       data-map-hash="7.95/50.039/18.664"
       data-from-embed="true"
-    ></div>
+    >
+    </div>
   </div>
 </div>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('[data-strava-button]').forEach((btn) => {
-      const id = btn.getAttribute('data-strava-button');
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("[data-strava-button]").forEach((btn) => {
+      const id = btn.getAttribute("data-strava-button");
       const popup = document.querySelector(`[data-strava-popup="${id}"]`);
       const close = document.querySelector(`[data-strava-close="${id}"]`);
-      const content = popup.querySelector('[data-strava-popup-content]');
+      const content = popup.querySelector("[data-strava-popup-content]");
 
       if (!popup || !close || !content) return;
 
-      btn.addEventListener('click', () => {
-        popup.classList.add('show');
+      btn.addEventListener("click", () => {
+        popup.classList.add("show");
 
-        const existingScript = document.querySelector('script[src="https://strava-embeds.com/embed.js"]');
+        const existingScript = document.querySelector(
+          'script[src="https://strava-embeds.com/embed.js"]'
+        );
         if (!existingScript) {
-          const script = document.createElement('script');
-          script.src = 'https://strava-embeds.com/embed.js';
+          const script = document.createElement("script");
+          script.src = "https://strava-embeds.com/embed.js";
           script.async = true;
           document.body.appendChild(script);
         } else if (window.StravaEmbedLoader) {
@@ -115,17 +121,17 @@ const { embedId = "3339199849723845918", id = "default" } = Astro.props;
         }
       });
 
-      close.addEventListener('click', () => popup.classList.remove('show'));
+      close.addEventListener("click", () => popup.classList.remove("show"));
 
-      popup.addEventListener('click', (e) => {
+      popup.addEventListener("click", (e) => {
         if (!content.contains(e.target)) {
-          popup.classList.remove('show');
+          popup.classList.remove("show");
         }
       });
 
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          popup.classList.remove('show');
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          popup.classList.remove("show");
         }
       });
     });
