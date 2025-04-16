@@ -158,6 +158,10 @@ nav a {
   width: 70px;
 }
 
+.display-none {
+  display: none;
+}
+
 /* Media queries */
 @media screen and (min-width: 636px) {
   .nav-links {

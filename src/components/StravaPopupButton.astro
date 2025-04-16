@@ -92,48 +92,59 @@ const { embedId = "3339199849723845918", id = "default" } = Astro.props;
 </div>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('[data-strava-button]').forEach((btn) => {
-      const id = btn.getAttribute('data-strava-button');
-      const popup = document.querySelector(`[data-strava-popup="${id}"]`);
-      const close = document.querySelector(`[data-strava-close="${id}"]`);
-      const content = popup.querySelector('[data-strava-popup-content]');
-
-      if (!popup || !close || !content) return;
-
-      const openPopup = () => {
-        popup.classList.add('show');
-        document.body.style.overflow = 'hidden';
-        const existingScript = document.querySelector('script[src="https://strava-embeds.com/embed.js"]');
-        if (!existingScript) {
-          const script = document.createElement('script');
-          script.src = 'https://strava-embeds.com/embed.js';
-          script.async = true;
-          document.body.appendChild(script);
-        } else if (window.StravaEmbedLoader) {
-          window.StravaEmbedLoader.render();
-        }
-      };
-
-      const closePopup = () => {
-        popup.classList.remove('show');
-        document.body.style.overflow = '';
-      };
-
-      btn.addEventListener('click', openPopup);
-      close.addEventListener('click', closePopup);
-
-      popup.addEventListener('click', (e) => {
-        if (!content.contains(e.target)) {
-          closePopup();
-        }
-      });
-
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          closePopup();
-        }
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-strava-button]').forEach((btn) => {
+        const id = btn.getAttribute('data-strava-button');
+        const popup = document.querySelector(`[data-strava-popup="${id}"]`);
+        const close = document.querySelector(`[data-strava-close="${id}"]`);
+        const content = popup.querySelector('[data-strava-popup-content]');
+        const counterWrapper = document.querySelector('.counter-wrapper');
+  
+        if (!popup || !close || !content) return;
+  
+        const isMobile = () => window.innerWidth < 768;
+  
+        const openPopup = () => {
+          popup.classList.add('show');
+          document.body.style.overflow = 'hidden';
+          if (isMobile() && counterWrapper) {
+            counterWrapper.classList.add('display-none');
+          }
+  
+          const existingScript = document.querySelector('script[src="https://strava-embeds.com/embed.js"]');
+          if (!existingScript) {
+            const script = document.createElement('script');
+            script.src = 'https://strava-embeds.com/embed.js';
+            script.async = true;
+            document.body.appendChild(script);
+          } else if (window.StravaEmbedLoader) {
+            window.StravaEmbedLoader.render();
+          }
+        };
+  
+        const closePopup = () => {
+          popup.classList.remove('show');
+          document.body.style.overflow = '';
+          if (isMobile() && counterWrapper) {
+            counterWrapper.classList.remove('display-none');
+          }
+        };
+  
+        btn.addEventListener('click', openPopup);
+        close.addEventListener('click', closePopup);
+  
+        popup.addEventListener('click', (e) => {
+          if (!content.contains(e.target)) {
+            closePopup();
+          }
+        });
+  
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            closePopup();
+          }
+        });
       });
     });
-  });
-</script>
+  </script>
+  
