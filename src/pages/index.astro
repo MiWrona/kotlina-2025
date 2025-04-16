@@ -7,6 +7,7 @@ import RoadDetails from "../components/RoadDetails.astro";
 import GlitchImageBanner from "../components/GlitchImageBanner.astro";
 import ScrollingHeader from "../components/ScrollingHeader.astro";
 import StravaPopupButton from "../components/StravaPopupButton.astro";
+import alpe from "../assets/img/alpe-nicht.jpg";
 
 const pageTitle = "Coig - product website boilerplate";
 ---
@@ -29,33 +30,39 @@ const pageTitle = "Coig - product website boilerplate";
     }
   }
   .hero-wrapper {
-    position: relative;
-    width: 100vw;
-    height: 100vh; /* <-- ZMIANA tutaj */
-    overflow: hidden;
-    background-color: black;
-  }
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: black;
+}
 
-  .hero-wrapper::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("../assets/img/alpe-nicht.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: grayscale(1) sepia(0.5) brightness(0.8);
-    animation: zoomPan 20s infinite alternate ease-in-out;
-    z-index: 0;
-  }
+/* Zastępuje ::before */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) sepia(0.5) brightness(0.8);
+  animation: zoomPan 20s infinite alternate ease-in-out;
+  z-index: 0;
+}
 
-  .hero-wrapper::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 1;
-  }
+/* Zastępuje ::after */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* Treść */
+.centered-counter {
+  position: relative;
+  z-index: 2;
+}
+
 
   .description-paragraph {
     font-size: 1rem;
@@ -98,6 +105,9 @@ const pageTitle = "Coig - product website boilerplate";
 
 <BaseLayout>
   <div class="hero-wrapper">
+    <img src={alpe.src} alt="" class="hero-bg" loading="lazy" decoding="async" />
+    <div class="hero-overlay"></div>
+  
     <div class="centered-counter">
       <Toggle
         id="szczegoly-etapu"
@@ -110,13 +120,15 @@ const pageTitle = "Coig - product website boilerplate";
             5800m przewyższenia
           </p>
           <p>
-            O możliwość dołączenia do bandy ambitnych pasjontów i zostawienia
+            O możliwość dołączenia do bandy ambitnych pasjonatów i zostawienia
             pieniędzy w miejscu, które tego potrzebuje
           </p>
         </div>
       </Toggle>
     </div>
   </div>
+  
+  
   <ScrollingHeader text="KOTLINA " />
   <Counter />
 </BaseLayout>
