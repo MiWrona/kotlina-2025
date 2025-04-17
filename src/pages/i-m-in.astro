@@ -1,0 +1,69 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FullWidthBanner from "../components/FullWidthBanner.astro";
+import RoadDetails from "../components/RoadDetails.astro";
+import GlitchImageBanner from "../components/GlitchImageBanner.astro";
+import HeroVideo from '../components/HeroVideo.astro';
+import Toggle from "../components/Toggle.astro";  
+import SmallScrollingHeader from "../components/SmallScrollingHeader.astro";
+import "../styles/global.css";
+
+const pageTitle = "I'm in";
+---
+
+<style>
+
+.centered-counter {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+  }
+
+</style>
+
+<BaseLayout>
+  <SmallScrollingHeader text="Ktoś powie, że to mało, ktoś inny, że to dużo. My mówimy, że to w sam raz." />
+
+<HeroVideo videoSrc="/video/jazda.MP4" title="" subtitle="" >
+
+<div class="centered-counter">
+  <Toggle
+    id="szczegoly-etapu"
+    buttonLabel="Chcę jechać"
+    buttonLabelAlt="ok"
+  >
+    <div class="description-paragraph">
+      <p>
+        Trasa jest zaplanowana w sposób elastyczny i umożliwia dołączenie i odłączenie się od nas na każdym etapie
+      </p>
+      <p>
+        Jeżeli nie możesz jechać całości, jedź z nami początek, środek lub koniec. 
+      </p>
+      <p>
+        Zarezerwuj czas, a więcej informacji pojawi się wkrótce 
+      </p>
+    </div>
+  </Toggle>
+  
+</div>
+
+</HeroVideo>
+
+  <!-- Dzień 2 
+     
+      https://www.strava.com/routes/3339205520359176582 -->
+  
+  <GlitchImageBanner
+    webpSrc="/img/alpe6.jpg"
+    jpgSrc="/img/alp6.jpg"
+    alt="Drużyna Alpe"
+    id="alpe-glitch"
+    height="550px"
+  />
+  
+
+</BaseLayout>
