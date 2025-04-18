@@ -76,7 +76,7 @@ nav a {
   display: flex;
   flex-direction: column;
   color: #f4e9c3;
-  width: 40px;
+  width: auto;
   padding: 10px 0;
   text-decoration: none;
   font-size: 1.3rem;
@@ -88,6 +88,7 @@ nav a {
 .nav-links a:hover,
 .nav-links a:focus {
   background-color: #e4dcdc77;
+ 
 }
 
 .nav-secondary-col {
@@ -102,6 +103,7 @@ nav a {
   height: 35px;
   position: relative;
   display: block;
+  margin-right: 8px;
 }
 
 .hamburger .line {
