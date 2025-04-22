@@ -1,0 +1,125 @@
+---
+import raceImage from '../assets/img/alpe-crew2.jpg';
+---
+
+<style>
+  section.race {
+   
+    background-color: #333;
+    color: #f4e9c3;
+    padding: 5rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    section.race {
+      grid-template-columns: 1fr 1fr;
+      padding: 5rem 6rem;
+      align-items: center;
+    }
+  }
+
+  .race-image {
+    position: relative;;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .race-image img {
+    width: 100%;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    box-shadow: 0 8px 20px rgba(73, 54, 54, 0.3);
+  }
+
+  .race-text h2 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 2.5rem;
+  }
+
+  .race-text h2 span {
+    color: #e7d2c4;
+  }
+
+  .race-text p {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .bg-image-box {
+    position: absolute;
+    height: 120%;
+    width: 120%;
+    top: -30px;
+    left: -30px;
+    z-index: 2;
+    filter: grayscale(50%) sepia(0.2) brightness(0.9);
+    animation: zoomPan 13s infinite  ease-in-out;
+  }
+
+  .race-img-front {
+    position: relative;
+    z-index: 10;
+    filter: grayscale(30%) sepia(10%) brightness(1);
+    animation: zoomPan2 13s infinite alternate ease-in-out;
+  }
+
+
+
+  @keyframes zoomPan {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    25% {
+      transform: scale(1.05) translate(1%, -1%);
+    }
+    50% {
+      transform: scale(1.1) translate(-1%, 1%);
+    }
+    75% {
+      transform: scale(1.05) translate(0.5%, -0.5%);
+    }
+    100% {
+      transform: scale(1) translate(0, 0);
+    }
+  }
+  @keyframes zoomPan2 {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    25% {
+      transform: scale(1.05) translate(-2%, 1%);
+    }
+    50% {
+      transform: scale(1.1) translate(2%, -1%);
+    }
+    75% {
+      transform: scale(1.05) translate(-5%, 5%);
+    }
+    100% {
+      transform: scale(1) translate(0, 0);
+    }
+  }
+</style>
+
+<section class="race">
+  <div class="race-image">
+    <img class="bg-image-box" src={raceImage.src} alt="Schronisko w lesie" />
+    <img class="race-img-front" src={raceImage.src} alt="Schronisko w lesie" />
+   
+  </div>
+
+  <div class="race-text">
+    <h2>KOTLINA</h2>
+    <p>Wycieczka prowadzona jest w formule współpracy i kooperacji, nikogo nie dropujemy i pilnujemy żęby tyły za bardzo się nie rozjeżdzają.</p>
+    <p>
+      KOTLINA, to wyjazd skupiony na przebywaniu w naturze, na świeżym powietrzu i na rowrze. Nie ścigamy się, ale jeśli czyjeś nogi będą dobrze podawać, to czekamy na ekipę w rozsądnym dystansie.
+    </p>
+    <p>Ta wyczieczka to przerwa od codzienności. Wszystko co potrzebne, masz ze sobą na rowerze - problemów i zmartwień nie pakujemy. To czas dla siebie.</p>
+  </div>
+</section>
