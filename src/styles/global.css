@@ -219,13 +219,17 @@ nav a {
     backdrop-filter: blur(5px);
     transform: all 5s ease;
   }
+  .nav-links a {
 
+    font-size: 1.2rem;
+
+  }
+  
 }
 
 
 /* glitch */
 .fracture-glitch {
-
   font-weight: 900;
   text-transform: uppercase;
   position: relative;
