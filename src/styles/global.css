@@ -175,7 +175,7 @@ nav a {
 }
 
 /* Media queries */
-@media screen and (min-width: 636px) {
+@media screen and (min-width: 637px) {
   .nav-links {
     display: flex;
     flex-direction: row;
@@ -185,7 +185,6 @@ nav a {
     margin-left: 2em;
     width: 100%;
   }
-
 
   .backdrop-filter-blur {
     backdrop-filter: blur(5px);
@@ -205,6 +204,7 @@ nav a {
     width: 100%;
   }
 }
+
 
 @media screen and (max-width: 636px) {
 
@@ -226,9 +226,13 @@ nav a {
     font-size: 1.2rem;
 
   }
-  
 }
 
+@media (max-width: 688px) and (min-width: 636px) {
+  .nav-links a {
+    padding: 15px 10px;
+  }
+}
 
 /* glitch */
 .fracture-glitch {
