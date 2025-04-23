@@ -158,6 +158,14 @@ nav a {
   padding: 20px;
 }
 
+/* paragraph */
+
+.paragraph {
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
 /* Logo */
 .logo-main {
   height: 70px;

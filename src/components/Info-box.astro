@@ -1,5 +1,13 @@
 ---
-import raceImage from '../assets/img/alpe-crew2.jpg';
+const {
+  ImageSrc,
+  ImageAlt,
+  ImageSecondSrc,
+  ImageSecondAlt,
+  headline,
+  text,
+  ImageRight = false // domyślnie false
+} = Astro.props;
 ---
 
 <style>
@@ -108,18 +116,35 @@ import raceImage from '../assets/img/alpe-crew2.jpg';
 </style>
 
 <section class="race">
-  <div class="race-image">
-    <img class="bg-image-box" src={raceImage.src} alt="Schronisko w lesie" />
-    <img class="race-img-front" src={raceImage.src} alt="Schronisko w lesie" />
-   
-  </div>
-
-  <div class="race-text">
-    <h2>KOTLINA</h2>
-    <p>Wycieczka prowadzona jest w formule współpracy i kooperacji, nikogo nie dropujemy i pilnujemy żęby tyły za bardzo się nie rozjeżdzają.</p>
-    <p>
-      KOTLINA, to wyjazd skupiony na przebywaniu w naturze, na świeżym powietrzu i na rowrze. Nie ścigamy się, ale jeśli czyjeś nogi będą dobrze podawać, to czekamy na ekipę w rozsądnym dystansie.
-    </p>
-    <p>Ta wyczieczka to przerwa od codzienności. Wszystko co potrzebne, masz ze sobą na rowerze - problemów i zmartwień nie pakujemy. To czas dla siebie.</p>
-  </div>
-</section>
+    {ImageRight ? (
+      <>
+        <div class="race-text">
+          <h2>{headline}</h2>
+          <div>
+            <p>{text}</p>
+            <slot />
+          </div>
+        </div>
+  
+        <div class="race-image">
+          <img class="bg-image-box" src={ImageSrc} alt={ImageAlt}/>
+          <img class="race-img-front" src={ImageSecondSrc} alt={ImageSecondAlt} />
+        </div>
+      </>
+    ) : (
+      <>
+        <div class="race-image">
+          <img class="bg-image-box" src={ImageSrc} alt={ImageAlt}/>
+          <img class="race-img-front" src={ImageSecondSrc} alt={ImageSecondAlt} />
+        </div>
+  
+        <div class="race-text">
+          <h2>{headline}</h2>
+          <div>
+            <p>{text}</p>
+            <slot />
+          </div>
+        </div>
+      </>
+    )}
+  </section>
