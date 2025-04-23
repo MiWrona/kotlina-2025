@@ -1,6 +1,7 @@
 document.querySelector(".hamburger").addEventListener("click", () => {
   const hamburger = document.querySelector(".hamburger");
   hamburger.classList.toggle("expanded");
+  document.querySelector(".nav-secondary-col").classList.toggle("rwd-backdrop-filter-blur");
   document.querySelector(".nav-links").classList.toggle("expanded");
 });
 

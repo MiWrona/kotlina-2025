@@ -76,6 +76,7 @@ nav a {
   right: 0;
   margin: 0;
   text-align: center;
+  
 }
 
 .nav-links a {
@@ -97,29 +98,21 @@ nav a {
  
 }
 
-.nav-secondary-col {
-  width: auto;
-}
 
 
 /* Hamburger */
 .hamburger {
-  padding-right: 20px;
   cursor: pointer;
-  width: 40px;
-  height: 35px;
-  position: relative;
-  display: block;
-  margin-right: 8px;
+  position: absolute;
+  left: 10px;
 }
 
 .hamburger .line {
   position: absolute;
   left: 0;
-  width: 40px;
-  height: 5px;
+  width: 30px;
+  height: 3px;
   background-color: #f4e9c3;
-  border-radius: 5px;
   transition: all 0.4s ease;
 }
 
@@ -128,11 +121,11 @@ nav a {
 }
 
 .hamburger .line:nth-child(2) {
-  top: 15px;
+  top: 10px;
 }
 
 .hamburger .line:nth-child(3) {
-  top: 30px;
+  top: 20px;
 }
 
 .hamburger.expanded .line:nth-child(1) {
@@ -190,6 +183,8 @@ nav a {
     margin-left: 2em;
     width: 100%;
   }
+
+
   .backdrop-filter-blur {
     backdrop-filter: blur(5px);
   }
@@ -207,6 +202,24 @@ nav a {
   .nav-secondary-col {
     width: 100%;
   }
+}
+
+@media screen and (max-width: 636px) {
+
+  .nav-secondary-col {
+    min-height: 100vh;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 20px;
+}
+
+  .rwd-backdrop-filter-blur {
+    backdrop-filter: blur(5px);
+    transform: all 5s ease;
+  }
+
 }
 
 
