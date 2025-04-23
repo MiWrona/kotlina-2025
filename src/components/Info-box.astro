@@ -12,14 +12,17 @@ const {
 
 <style>
   section.race {
-   
     background-color: #333;
     color: #f4e9c3;
-    padding: 5rem 1.5rem;
+    padding: 5rem 1rem;
     display: grid;
     grid-template-columns: 1fr;
     gap: 2.5rem;
-  }
+    max-width: 100%;
+    overflow-x: hidden;
+    margi
+}
+
 
   @media (min-width: 768px) {
     section.race {
@@ -34,6 +37,7 @@ const {
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
+    z-index: 1;
   }
 
   .race-image img {
@@ -119,7 +123,7 @@ const {
     {ImageRight ? (
       <>
         <div class="race-text">
-          <h2>{headline}</h2>
+          <h2 class="glitch">{headline}</h2>
           <div>
             <p>{text}</p>
             <slot />
@@ -127,19 +131,20 @@ const {
         </div>
   
         <div class="race-image">
-          <img class="bg-image-box" src={ImageSrc} alt={ImageAlt}/>
+          
           <img class="race-img-front" src={ImageSecondSrc} alt={ImageSecondAlt} />
+        
         </div>
       </>
     ) : (
       <>
         <div class="race-image">
-          <img class="bg-image-box" src={ImageSrc} alt={ImageAlt}/>
+        
           <img class="race-img-front" src={ImageSecondSrc} alt={ImageSecondAlt} />
         </div>
   
         <div class="race-text">
-          <h2>{headline}</h2>
+          <h2 class="glitch">{headline}</h2>
           <div>
             <p>{text}</p>
             <slot />

@@ -13,6 +13,11 @@ const {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
+    overflow-wrap: break-word; /* 💡 To łamie zbyt długie wyrazy */
+    word-break: break-word;
+    text-wrap: pretty;
+    
 
   }
 
@@ -22,12 +27,14 @@ const {
     padding: 5px;
     margin: 5px;
   }
+
   .subheadline {
     font-size: 1.1rem;
     font-weight: 600;
     padding: 5px;
     margin: 5px;
     max-width: 100%;
+   
   }
 
   .text {
@@ -51,7 +58,8 @@ const {
 </style>
 
 <section class="centered-box">
-    <h2 class="headline">{headline}</h2>
+    <h2 class=" headline fracture-glitch" data-heading={headline}>{headline}</h2>
+ 
     <h3 class="subheadline">{subheadline}</h3>
     <div class="text">{text}</div>
   <slot />
