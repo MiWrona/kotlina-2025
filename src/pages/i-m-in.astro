@@ -5,6 +5,7 @@ import Toggle from "../components/Toggle.astro";
 import SmallScrollingHeader from "../components/SmallScrollingHeader.astro";
 import InfoBox from "../components/Info-box.astro";
 import ImageSrc from "../assets/img/alpe-crew2.jpg";
+import CrewPhoto from "../assets/img/alpe6.jpg";
 import CenteredInfoBox from "../components/CenteredInfoBox.astro";
 import "../styles/global.css";
 
@@ -20,6 +21,11 @@ const pageTitle = "I'm in";
     z-index: 2;
     text-align: center;
     width: 100%;
+  }
+
+  a {
+    color: #f4e9c3;
+    font-weight: bold;
   }
 </style>
 
@@ -77,19 +83,19 @@ const pageTitle = "I'm in";
   <InfoBox
     ImageRight={false}
     headline="WYMAGANIA"
-    ImageSrc ={ImageSrc.src}
-    ImageSecondSrc={ImageSrc.src}
-    text={`Jedziemy na gravelach, ale to opony są ogranicznikiem - minimum 38, ale lepiej +40. Trasa ma sporo górskich singli, więc sprzęt musi sobie poradzić w takich warunkach. `}
+    ImageSrc ={CrewPhoto.src}
+    ImageSecondSrc={CrewPhoto.src}
+    text={`Jedziemy na gravelach w formule bikepackingu. Opony są ogranicznikiem - minimum 38, ale lepiej +40. Trasa ma sporo górskich singli, więc sprzęt musi sobie poradzić w takich warunkach. `}
   >
     <p class="paragraph">
-      KOTLINA, to wyjazd skupiony na przebywaniu w naturze, na świeżym powietrzu
-      i na rowerze. Nie ścigamy się, ale jeśli czyjeś nogi będą dobrze podawać,
-      to czekamy na ekipę w rozsądnym dystansie.
+       Nie tylko sprzęt musi być odpowiedni, ale i Ty. Trasa nie jest bardzo wymagająca, ale jednak dystans, przewyższenia i kilka dni w siodle, może zmęczyć.
     </p>
     <p class="paragraph">
-      Ta wyczieczka to przerwa od codzienności. Wszystko co potrzebne masz ze
-      sobą na rowerze - problemów i zmartwień nie pakujemy. To czas dla
-      siebie.
+      Jeżeli chodzi o ekwipunek to bierzemy minimum, ale wszystko co potrzebne. Na stronie niebawem pojawi się info, co zabrać a co olać.
+    </p>
+    <p class="paragraph">
+      Codziennie śpimy w innym miejscu. Noclegi dla ekipy, która zadeklarowała się wczęsniej są klepnięte. Jeżeli chcesz dołączyć, to musisz zarezerwować sobie nocleg na własną rękę, lub zabrać ze sobą namiot. Noclegi, które mamy zarezerowane są w popularnych miejscówkach, więc nie powinno być problemu znaleźć coś dodatkowego.
+      Śpimy tam gdzie kończy się etap danego dnia, na tej podstawie możecie zacząć się rozglądać ew. <a href="https://wa.me/+48512275395"> Napisz do mnie</a> a podam Ci więcej szczegółow. 
     </p>
   </InfoBox>
 </BaseLayout>

@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import logo from "../assets/img/logo.png";
 import "../styles/global.css";
 const { pageTitle } = Astro.props;
 ---
@@ -26,7 +27,10 @@ const { pageTitle } = Astro.props;
   <body>
     <Header />
     <slot />
-    <Footer />
+    <Footer
+    logoSrc={logo.src}
+    whatsappNumber="48512275395"
+  />
     <script>
       import "../scripts/menu.js";
     </script>
