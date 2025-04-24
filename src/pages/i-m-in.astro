@@ -7,7 +7,8 @@ import InfoBox from "../components/Info-box.astro";
 import ImageSrc from "../assets/img/alpe-crew2.jpg";
 import CrewPhoto from "../assets/img/alpe6.jpg";
 import CenteredInfoBox from "../components/CenteredInfoBox.astro";
-import ScrollDistortionPlane from "../components/ScrollDistortionPlane.astro";
+import CrewPhoto2Web from "../assets/img/kawa-min.jpg";
+import CrewPhoto2 from "../assets/img/kawa-min.webp";
 import "../styles/global.css";
 
 const pageTitle = "I'm in";
@@ -94,10 +95,26 @@ const pageTitle = "I'm in";
     <p class="paragraph">
       Jeżeli chodzi o ekwipunek to bierzemy minimum, ale wszystko co potrzebne. Na stronie niebawem pojawi się info, co zabrać a co olać.
     </p>
-    <p class="paragraph">
-      Codziennie śpimy w innym miejscu. Noclegi dla ekipy, która zadeklarowała się wczęsniej są klepnięte. Jeżeli chcesz dołączyć, to musisz zarezerwować sobie nocleg na własną rękę, lub zabrać ze sobą namiot. Noclegi, które mamy zarezerowane są w popularnych miejscówkach, więc nie powinno być problemu znaleźć coś dodatkowego.
-      Śpimy tam gdzie kończy się etap danego dnia, na tej podstawie możecie zacząć się rozglądać ew. <a href="https://wa.me/+48512275395"> Napisz do mnie</a> a podam Ci więcej szczegółow. 
-    </p>
+    
   </InfoBox>
+  <InfoBox
+    ImageRight={true}
+    headline="NOCLEGI"
+    ImageSrc ={CrewPhoto2.src}
+    ImageSecondSrc={CrewPhoto2.src}
+    text={`Codziennie śpimy w innym miejscu. Noclegi dla ekipy, która zadeklarowała się wczęsniej są klepnięte.`}
+  >
+  <p class="paragraph">
+    Jeżeli chcesz dołączyć, to musisz zarezerwować sobie nocleg na własną rękę, lub zabrać ze sobą namiot. Noclegi, które mamy zarezerowane są w popularnych miejscówkach, więc nie powinno być problemu znaleźć coś dodatkowego.
+  </p>
+  <p class="paragraph">
+    Śpimy tam gdzie kończy się etap danego dnia, na tej podstawie możecie zacząć się rozglądać ew. <a href="https://wa.me/+48512275395"> Napisz do mnie</a> a podam Ci więcej szczegółow. 
+  </p>
+  </InfoBox>
+  <CenteredInfoBox
+  headline="Daj znać! "
+  text="08.02.2025/15.06.2025"
+  HeadlineBelow={false}
+/> 
 
 </BaseLayout>
